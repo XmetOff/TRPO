@@ -1,0 +1,4 @@
+[flake8]
+ignore = D203
+exclude = manage.py, .\chatMessages\migrations\, .\chats\migrations\
+max-line-length = 120

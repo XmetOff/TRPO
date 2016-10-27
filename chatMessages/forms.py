@@ -14,7 +14,7 @@ class MessageForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
     def save(self, commit=True):
-        message = super().save(commit = False)
+        message = super().save(commit=False)
         message.author = self.user
         message.chat = self.chat
         message.save()
