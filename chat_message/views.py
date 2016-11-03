@@ -5,6 +5,7 @@ from django.views.generic import CreateView
 from chat_message.forms import MessageForm
 from chat_room.models import Room
 
+
 class CreateMessageView(LoginRequiredMixin, CreateView):
     form_class = MessageForm
     template_name = 'chat_message/message_form.html'
