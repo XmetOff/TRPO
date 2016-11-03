@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
 from django.views.generic import CreateView
@@ -6,7 +7,7 @@ from chatMessages.forms import MessageForm
 from chats.models import Chat
 
 
-class CreateMessageView(CreateView):
+class CreateMessageView(LoginRequiredMixin, CreateView):
     form_class = MessageForm
     template_name = 'chatMessages/chatmessage_form.html'
 
