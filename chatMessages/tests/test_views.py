@@ -32,4 +32,16 @@ class CreateMessageViewTest(TestCase):
         self.assertEqual(message.text, 'weqweqwe')
         self.assertEqual(message.author, user2)
 
+    def test_count_message(self):
+        creator = User.objects.create_user('user1')
+        user2 = User.objects.create_user('user2')
+        chat = Chat.objects.create(name='general', creator=creator)
+        self.client.force_login(user2)
+        self.client.post(
+            reverse('create_message', kwargs=dict(chat=chat.id)),
+            dict(text='weqweqwe')
+        )
+        message = ChatMessage.objects.get()
+        self.assertEqual(ChatMessage.objects.count(),1)
+
 
