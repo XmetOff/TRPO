@@ -41,7 +41,4 @@ class CreateMessageViewTest(TestCase):
             reverse('create_message', kwargs=dict(chat=chat.id)),
             dict(text='weqweqwe')
         )
-        message = ChatMessage.objects.get()
-        self.assertEqual(ChatMessage.objects.count(),1)
-
-
+        self.assertEqual(ChatMessage.objects.count(), 1)
