@@ -10,16 +10,6 @@ class ChatMessageViewSet(
         viewsets.mixins.CreateModelMixin,
         viewsets.mixins.UpdateModelMixin,
         viewsets.GenericViewSet):
-    """
-    Courier creation API endpoint: programmatically register new couriers
-    """
-    # permission_classes = [permissions.IsAuthenticated]
-    # pagination_class = None
-    queryset = ChatMessage.objects.all()
-    serializer_class = MessageSerializer
-
-    # def get(self, request, format=None):
-    #     return Response(self.queryset)
 
     def create(self, request, *args, **kwargs):
         data = request.data
@@ -46,31 +36,21 @@ class ChatMessageViewSet(
             queryset_result = queryset_result[fromIndex:]
         return queryset_result
 
-    def list(self, request, *args, **kwargs):
-        # queryset = self.filter_queryset(self.get_queryset())
-        queryset = self.filter_list(self.get_queryset(), request.query_params)
-        page = self.paginate_queryset(queryset)
-        if page is not None:
-            serializer = self.get_serializer(page, many=True)
-            return self.get_paginated_response(serializer.data)
-
-        serializer = self.get_serializer(queryset, many=True)
-        return Response(serializer.data)
 
 class CreateMessageView(LoginRequiredMixin, CreateView):
     form_class = MessageForm
-    template_name = 'chatMessages/chatmessage_form.html'
+    template_name = 'chat_message/message_form.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['chat'] = get_object_or_404(Chat, id=self.kwargs['chat'])
+        context['room'] = get_object_or_404(Room, id=self.kwargs['room'])
         return context
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
         kwargs['user'] = self.request.user
-        kwargs['chat'] = get_object_or_404(Chat, id=self.kwargs['chat'])
+        kwargs['room'] = get_object_or_404(Room, id=self.kwargs['room'])
         return kwargs
 
     def get_success_url(self):
-        return reverse('create_message', kwargs=dict(chat=self.kwargs['chat']))
+        return reverse('create_message', kwargs=dict(room=self.kwargs['room']))
