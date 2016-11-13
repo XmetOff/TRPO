@@ -9,3 +9,4 @@ class MessageInline(admin.TabularInline):
 
 admin.site.register(Message)
 
+# Register your models here.
