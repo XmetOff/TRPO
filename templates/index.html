@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ object.name }} - chat{% endblock %}
+
+{% block js %}
+    <script type='text/javascript' src='{% static "/js/chat-script.js" %}' defer="defer"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="global-left">
+        <div class="message-list" data-bind="foreach: $root.messages">
+            <div class="message">
+                <p data-bind="text:text"></p>
+            </div>
+        </div>
+        <div class="new-message">
+            <div class="new-message-form-wrapper">
+                <form data-bind="submit: $root.addMessage" id="new-message-form">
+                    <textarea data-bind="value: textMessage" name="text"></textarea>
+                    <button>Отправить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="global-right">
+
+    </div>
+{% endblock %}

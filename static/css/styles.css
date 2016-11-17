@@ -1,0 +1,80 @@
+html, body, div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed,
+  figure, figcaption, footer, header, hgroup,
+  menu, nav, output, ruby, section, summary,
+  time, mark, audio, video {
+  	margin: 0;
+  	padding: 0;
+  	border: 0;
+  	font-size: 100%;
+  	font: inherit;
+  	vertical-align: baseline;
+  }
+
+body {
+    height: 100%;
+    width: 100%;
+    background-color: #EEEEEE;
+}
+
+.global-left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80%;
+    height: 100%;
+}
+.global-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 20%;
+    height: 100%;
+    border-left: 1px solid #E1E1E1;
+}
+.message-list {
+
+}
+.new-message {
+    position: absolute;
+    bottom: 0;
+    height: 150px;
+    width: 100%;
+    border-top: 1px solid #E1E1E1;
+    background-color: #e9eeff;
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+.new-message .new-message-form-wrapper {
+    width: 60%;
+    margin: auto;
+    height: 100%;
+}
+.new-message .new-message-form-wrapper form {
+    width: 100%;
+    height: 100%;
+}
+.new-message .new-message-form-wrapper form textarea {
+    width: 100%;
+    height: 80px;
+    resize: none;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #bfbfbf;
+}
+.new-message .new-message-form-wrapper form button {
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #bfbfbf;
+    background-color: #90AFC0;
+    width: 150px;
+    height: 30px;
+}
