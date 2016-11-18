@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% block title %}
+    TRPO - Chat in {{ room.name }}
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="panel panel-default" style="">
+                    <div class="panel-heading" id="accordion">
+                        <span class="glyphicon glyphicon-comment"></span> {{ room.name }}
+                        <div class="btn-group pull-right">
+                            <a type="button" class="btn btn-default btn-xs" data-toggle="collapse"
+                               data-parent="#accordion" href="#collapseOne">
+                                <span class="glyphicon glyphicon-chevron-down"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="panel-collapse body" id="collapseOne">
+                        <div class="panel-body" style="height: 50em;overflow: scroll">
+                            <ul class="chat">
+                                {% for message in room.message_set.all %}
+                                    <div class="chat-body clearfix">
+                                        <div class="header">
+                                            <strong class="primary-font">{{ message.author }}</strong>
+                                            <small class="pull-right text-muted">
+                                                <span class="glyphicon glyphicon-time"></span>{{ message.timestamp.now }}
+                                            </small>
+                                        </div>
+
+                                        <p>{{ message.text }}</p>
+                                    </div>
+                                {% endfor %}
+                                </span>
+                            </ul>
+                        </div>
+                        <div class="panel-footer">
+                            <div class="input-group">
+                                <form class="form-inline" method="post">
+                                    {% csrf_token %}
+                                    {% bootstrap_form form %}
+                                    {% buttons %}
+                                        <button class="btn btn-warning btn-sm">Send</button>
+                                    {% endbuttons %}
+                                </form>
+
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
