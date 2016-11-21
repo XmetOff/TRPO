@@ -5,13 +5,21 @@
 
 {% block js %}
     <script type='text/javascript' src='{% static "/js/chat-script.js" %}' defer="defer"></script>
+    <script>
+        window.chatId = {{ object.id }};
+    </script>
 {% endblock %}
 
 {% block body %}
     <div class="global-left">
         <div class="message-list" data-bind="foreach: $root.messages">
             <div class="message">
-                <p data-bind="text:text"></p>
+                <img src="{% static "/img/avatar_placeholder.png" %}" class="message-left avatar"/>
+                <div class="message-right">
+                    <p class="user-name" data-bind="text:author.username"></p>
+                    <p class="message-text" data-bind="text:text"></p>
+                </div>
+                <div class="clearfix"></div>
             </div>
         </div>
         <div class="new-message">

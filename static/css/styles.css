@@ -1,3 +1,4 @@
+
 html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -19,12 +20,29 @@ html, body, div, span, applet, object, iframe,
   	vertical-align: baseline;
   }
 
+@font-face {
+  font-family: 'HelveticaNeueCyr-Roman';
+  src: url('/static/fonts/HelveticaNeueCyr-Roman/HelveticaNeueCyr-Roman.eot');
+  src: url('/static/fonts/HelveticaNeueCyr-Roman/HelveticaNeueCyr-Roman.woff2') format('woff2'),
+       url('/static/fonts/HelveticaNeueCyr-Roman/HelveticaNeueCyr-Roman.woff') format('woff'),
+       url('/static/fonts/HelveticaNeueCyr-Roman/HelveticaNeueCyr-Roman.ttf') format('truetype'),
+       url('/static/fonts/HelveticaNeueCyr-Roman/HelveticaNeueCyr-Roman.svg#HelveticaNeueCyr-Roman') format('svg'),
+       url('/static/fonts/HelveticaNeueCyr-Roman/HelveticaNeueCyr-Roman.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+a,p,h1,h2,h3,h4,h5,h6,label {
+    font-family: 'HelveticaNeueCyr-Roman', Arial, sans-serif;
+    color: #333333;
+}
 body {
     height: 100%;
     width: 100%;
     background-color: #EEEEEE;
 }
-
+.clearfix {
+    clear: both;
+}
 .global-left {
     position: absolute;
     left: 0;
@@ -77,4 +95,38 @@ body {
     background-color: #90AFC0;
     width: 150px;
     height: 30px;
+}
+.message-list {
+    height: calc(100% - 150px);
+    overflow-x: scroll;
+}
+.message {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    padding: 5px 0;
+    border-bottom: 1px solid #cdcdcd;
+}
+.message .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+}
+.message-left {
+    float: left;
+}
+.message-right {
+    float: right;
+    width: calc(100% - 50px);
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.message .user-name{
+    font-size: 1.2em;
+    margin-bottom: 6px;
+    font-weight: bolder;
+}
+.message .message-text{
+
 }
