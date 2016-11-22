@@ -32,6 +32,40 @@
         </div>
     </div>
     <div class="global-right">
+        <div class="user-info">
+            <div class="unsigned">
+                <button data-bind="click: $root.openSignInModal">Вход</button>
+                <button data-bind="click: $root.openSignUpModal">Регистрация</button>
+            </div>
+            <div class="signed">
 
+            </div>
+        </div>
+        <div class="user-list">
+
+        </div>
     </div>
+
+    <!-- ko if: signInModal -->
+    <div data-bind="click: $root.closeSignInModal" class="modal-background">
+    </div>
+    <div class="modal-window">
+        <form>
+            <input/>
+            <input/>
+            <button>ок</button>
+        </form>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: signUpModal -->
+    <div data-bind="click: $root.closeSignUpModal" class="modal-background">
+    </div>
+    <div class="modal-window">
+        <form>
+            <input/>
+            <input/>
+            <button>ок</button>
+        </form>
+    </div>
+    <!-- /ko -->
 {% endblock %}

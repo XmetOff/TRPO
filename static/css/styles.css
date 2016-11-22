@@ -31,7 +31,7 @@ html, body, div, span, applet, object, iframe,
   font-weight: normal;
   font-style: normal;
 }
-a,p,h1,h2,h3,h4,h5,h6,label {
+a,p,h1,h2,h3,h4,h5,h6,label, button {
     font-family: 'HelveticaNeueCyr-Roman', Arial, sans-serif;
     color: #333333;
 }
@@ -39,6 +39,17 @@ body {
     height: 100%;
     width: 100%;
     background-color: #EEEEEE;
+}
+button {
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #bfbfbf;
+    background-color: #90AFC0;
+}
+input, textarea {
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #bfbfbf;
 }
 .clearfix {
     clear: both;
@@ -84,15 +95,9 @@ body {
     width: 100%;
     height: 80px;
     resize: none;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: 1px solid #bfbfbf;
 }
 .new-message .new-message-form-wrapper form button {
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: 1px solid #bfbfbf;
-    background-color: #90AFC0;
+
     width: 150px;
     height: 30px;
 }
@@ -129,4 +134,46 @@ body {
 }
 .message .message-text{
 
+}
+.user-info {
+    border-bottom: 1px solid #cdcdcd;
+    background-color: #e9eeff;
+        padding: 10px;
+    box-sizing: border-box;
+}
+.user-info .unsigned button {
+    display: block;
+    width: 90%;
+    height: 30px;
+    margin: 10px auto;
+}
+.modal-background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1000;
+    left: 0;
+    right: 0;
+    background-color: #000000;
+    opacity: 0.8;
+}
+.modal-window {
+    position: absolute;
+    z-index: 1100;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    box-sizing: content-box;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #000000;
+}
+.modal-window form input, .modal-window form button {
+    display: block;
+    line-height: 30px;
+    width: 300px;
+    margin: 20px 0;
+    padding: 0 5px;
+    box-sizing: border-box;
 }

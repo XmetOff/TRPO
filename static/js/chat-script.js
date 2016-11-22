@@ -86,6 +86,7 @@ var ContactsModel = {
     startUpdatingChat: function () {
         setInterval(this.updateChat.bind(this), 1000);
     },
+    user: ko.observable(null),
     messages: ko.observableArray(),
     users: ko.observableArray(),
     textMessage: ko.observable(),
@@ -102,7 +103,21 @@ var ContactsModel = {
         }).done(function (data) {
             
         });
-    }
+    },
+    signInModal: ko.observable(false),
+    openSignInModal: function () {
+        this.signInModal(true);
+    },
+    closeSignInModal: function () {
+        this.signInModal(false);
+    },
+    signUpModal: ko.observable(false),
+    openSignUpModal: function () {
+        this.signUpModal(true);
+    },
+    closeSignUpModal: function () {
+        this.signUpModal(false);
+    },
 };
 
 ko.applyBindings(ContactsModel);
