@@ -1,11 +1,11 @@
 from django.contrib import admin
 
-from chatMessages.admin import MessageInline
-from chat_room.models import Chat
+from chat_message.admin import MessageInline
+from chat_room.models import Room
 
 
-class ChatAdmin(admin.ModelAdmin):
+class RoomAdmin(admin.ModelAdmin):
     inlines = [MessageInline]
 
 
-admin.site.register(Chat, ChatAdmin)
+admin.site.register(Room, RoomAdmin)
