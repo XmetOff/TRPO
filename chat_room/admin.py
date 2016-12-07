@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from chatMessages.admin import MessageInline
-from chats.models import Chat
+from chat_room.models import Chat
 
 
 class ChatAdmin(admin.ModelAdmin):

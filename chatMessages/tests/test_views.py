@@ -3,7 +3,7 @@ from django.test import TestCase
 from django.urls import reverse
 
 from chatMessages.models import ChatMessage
-from chats.models import Chat
+from chat_room.models import Chat
 
 
 class CreateMessageViewTest(TestCase):

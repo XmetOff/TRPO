@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('chats', '0001_initial'),
+        ('chat_room', '0001_initial'),
     ]
 
     operations = [
@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
                 ('text', models.CharField(max_length=255)),
                 ('timestamp', models.DateTimeField(default=django.utils.timezone.now)),
                 ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-                ('chat', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='chats.Chat')),
+                ('chat', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='chat_room.Chat')),
             ],
         ),
     ]

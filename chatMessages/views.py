@@ -6,7 +6,7 @@ from rest_framework import viewsets, status
 from rest_framework import permissions
 from rest_framework.response import Response
 from chatMessages.forms import MessageForm
-from chats.models import Chat
+from chat_room.models import Chat
 from .models import ChatMessage
 from .serializers import MessageSerializer
 from dateutil import parser
