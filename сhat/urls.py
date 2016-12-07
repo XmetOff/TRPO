@@ -23,4 +23,4 @@ urlpatterns = [
     url(r'^chats/', include('chats.urls')),
     url(r'^messages/', include('chatMessages.urls')),
     url(r'^api/', include('chatMessages.api')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
