@@ -2,9 +2,12 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
 from django.views.generic import CreateView
+
 from chat_message.forms import MessageForm
 from chat_room.models import Room
 
+
+# Create your views here.
 
 class CreateMessageView(LoginRequiredMixin, CreateView):
     form_class = MessageForm
