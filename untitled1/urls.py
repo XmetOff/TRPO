@@ -21,6 +21,6 @@ urlpatterns = [
     url(r'^(?!.)', include('TRChat.urls')),
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^room/', include('chat_message.urls')),
-    url(r'^roms/', include('chat_room.urls'))
-
+    url(r'^roms/', include('chat_room.urls')),
+    url('', include('social.apps.django_app.urls', namespace='social')),
 ]

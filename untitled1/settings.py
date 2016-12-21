@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+import django.db.backends.postgresql_psycopg2;
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,10 +25,13 @@ SECRET_KEY = '=b%)j8)^7!9)k@)a2*d6tv@#)#z9!eb$=yj7v4(kb8d981h7uv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.137.1',
+ALLOWED_HOSTS = ['trpochat.azurewebsites.net',
                  '127.0.0.1']
 
 # Application definition
+SOCIAL_AUTH_VK_OAUTH2_KEY = '5788532'
+SOCIAL_AUTH_VK_OAUTH2_SECRET = 'vpWyAXA2bJptP4MNcpqV'
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -39,6 +43,7 @@ INSTALLED_APPS = [
     'chat_room',
     'chat_message',
     'bootstrap3',
+    'social.apps.django_app.default'
 ]
 
 MIDDLEWARE = [
@@ -65,6 +70,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social.apps.django_app.context_processors.backends',
+                'social.apps.django_app.context_processors.login_redirect',
             ],
         },
     },
@@ -100,6 +107,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = (
+    'social.backends.vk.VKOAuth2',
+    'social.backends.facebook.FacebookOAuth2',
+    'social.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend'
+)
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
@@ -117,3 +130,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
