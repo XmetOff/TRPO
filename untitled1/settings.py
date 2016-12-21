@@ -24,7 +24,7 @@ SECRET_KEY = '=b%)j8)^7!9)k@)a2*d6tv@#)#z9!eb$=yj7v4(kb8d981h7uv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.137.1',
+ALLOWED_HOSTS = ['trpochat.azurewebsites.net',
                  '127.0.0.1']
 
 # Application definition
